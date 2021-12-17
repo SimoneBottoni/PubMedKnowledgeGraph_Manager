@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+
+    <property resource="application.properties" />
+
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+    <logger name="com.pubmedknowledgegraph.master.annotator" level="debug" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="org.springframework.boot" level="off" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="org.hibernate" level="off" additivity="false"> <!-- debug -->
+        <appender-ref ref="FILE" />
+    </logger>
+    <logger name="org.hibernate.type.descriptor.sql" level="off" additivity="false"> <!-- trace -->
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="com.zaxxer.hikari" level="off" additivity="false"> <!-- trace -->
+        <appender-ref ref="FILE" />
+    </logger>
+    <logger name="com.zaxxer.hikari.HikariConfig" level="off" additivity="false"> <!-- debug -->
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <logger name="gov.nih.nlm.nls" level="off"/>
+
+</configuration>
